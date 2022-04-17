@@ -1,0 +1,91 @@
+@import "../../styles/export.scss";
+
+.banner {
+  border-bottom: 1px solid $primary-color;
+
+  .marketDetails {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .info {
+      overflow: hidden;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      padding: 0.2rem;
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+        background: linear-gradient(
+          to right,
+          var(--bg-section-color),
+          rgba(white, 0) 80px,
+          rgba(white, 0) calc(100% - 80px),
+          var(--bg-section-color)
+        );
+        @media not all and (min-resolution:.001dpcm) { 
+          background: none;
+        }
+      }
+      &:hover .info {
+        animation-play-state: paused;
+      }
+      div {
+        display: flex;
+        padding: 0.2rem;
+        min-width: max-content;
+        animation: slidermoving 20s linear infinite;
+
+        span {
+          padding: 0 0.3rem;
+          font-size: 0.8rem;
+          @media #{$portraitMobile} {
+            font-size: 1rem;
+          }
+          font-weight: 600;
+          color: var(--light-text-color);
+          &.value {
+            color: $link-color;
+          }
+        }
+      }
+    }
+    .bannerControle {
+      align-items: center;
+      background-color: var(--bg-section-color);
+      position: relative;
+      z-index: 9;
+      display: flex;
+      justify-content: space-evenly;
+      > i,
+      a > i {
+        color: $primary-color;
+        padding: 0 0.7rem;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        @media #{$portraitMobile} {
+          font-size: 1.3rem;
+        }
+
+        &:hover {
+          color: var(--light-text-color);
+        }
+        &:first-child {
+          border-right: 1px solid $primary-color;
+        }
+        &.fa-house-user {
+          border-right: none;
+        }
+      }
+      
+    }
+  }
+}

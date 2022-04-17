@@ -1,0 +1,36 @@
+ 
+  $link-color:#408f8c;
+  $primary-color:$link-color;
+  $green-up-color:$primary-color;
+  
+
+:root{
+  --red-down-color: #ea3943;
+  --bg-section-color:#fcfdfe;
+  --text-color:#171924;
+  --light-text-color:#58667e;
+  --hover-color-1:#f7fafd;
+  --linear-gradient:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9178265056022409) 50%, rgba(255,255,255,1) 100%); 
+  --black-color:#000;
+  --white-color:#fff;
+  --progress-color:#4696935e;
+  --box-shadow: rgb(88 102 126 / 8%) 0px 4px 24px, rgb(88 102 126 / 12%) 0px 1px 2px;
+  --input-bg:#d4e2e2;
+  --btn-bg:#58667e;
+}
+ 
+[data-theme='dark'] { 
+  --red-down-color: #ea3943;
+  --bg-section-color:#131818;
+  --text-color:#f7fafd;
+  --light-text-color:#ffffffaf;
+  --hover-color-1:#f7fafd;
+  --black-color:rgb(243, 234, 234);
+  --progress-color:#2f4948ce;
+  --white-color:#1f2133;
+  --linear-gradient:linear-gradient(180deg, rgba(19,24,24,0.06628588935574231) 0%, rgba(19,24,24,0.8702074579831933) 50%, rgba(19,24,24,1) 100%);
+  --input-bg:#212b2b;
+  --box-shadow: rgb(65 143 139 / 25%) 0px 4px 24px, rgb(88 102 126 / 12%) 0px 1px 2px;
+  --btn-bg:#192e23;
+
+}

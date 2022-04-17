@@ -1,0 +1,108 @@
+@import "../../styles/export.scss";
+
+.heroSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  width: 100%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  -webkit-box-shadow:var(--box-shadow);  
+  box-shadow: var(--box-shadow);
+  position: relative;
+  .left-side{
+    width: 50%;
+    padding: 0 5vw;
+    z-index: 1;
+    @media #{$ltDesktop} {
+      width: 100%;
+    }
+    .h1-title{
+      @media #{$mobile} {
+        line-height: .8;
+      }
+      span{
+        color: transparent;
+        -webkit-text-stroke: 3px $primary-color;
+        font-style: italic;
+        position: relative;
+        font-size: 5.2rem;
+        text-shadow: 12px 12px 6px #599a9654;
+        &::before{
+          content: "";
+          width: 100%;
+          position: absolute;
+          height: .3em;
+          background-color:var(--text-color);
+          bottom: 40%;
+          z-index: -1;
+          transition: transform .5s cubic-bezier(.66,0,.34,1);
+          transform: scaleX(0);
+          transform-origin: 100% 50%;
+        }
+        &:hover{
+          &::before{
+            transform: scale(1);
+            transform-origin: 0 50%;
+          }
+        }
+
+      }
+      &::after{
+        content: ".";
+        color: $primary-color;
+        left: 0;
+        bottom: 0;
+      }
+    }
+    .description{
+      max-width: 470px;
+    }
+
+  }
+  .right-side{
+    width: 50%;
+    height: 100%;
+    padding-top: 40px;
+    position: relative;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+
+    img{
+      max-width: 100%;
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+      object-fit: fill;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    @media #{$ltDesktop} {
+      width: 100%;
+      opacity: 0.3;
+      position: absolute;
+    }
+    &::before{
+      content: "";
+      background: rgba(255, 255, 255, 0.4);
+      width: 60%;
+      height: 100%;
+      top: 0%;
+      left: -125%;
+      transform: skew(45deg);
+      position: absolute;
+      transition: all .5s ease-out;
+    }
+
+  }
+  &:hover{
+    .right-side{
+      &::before{
+        left: 150%;
+      }
+    }
+  }
+  
+}

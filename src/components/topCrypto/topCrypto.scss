@@ -1,0 +1,58 @@
+.topCrypto{
+  display: flex;
+  align-items: center;
+  position: relative;
+  &:hover{
+    .row{
+    animation-play-state: paused;
+    }
+  }
+  .row{
+  display: flex;
+  min-width: max-content;
+  animation: slidermoving 30s linear infinite reverse;
+  margin: .5rem;
+ 
+  .card{
+    padding: 2rem;
+    margin: 1rem;
+    width: 180px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: var(--box-shadow);
+    background-color:var(--bg-section-color);
+    &:hover{
+      transform: scale(1.2);
+      z-index: 9;
+    }
+
+    .symbol{
+      display: flex;
+      img{
+        width: 2rem;
+        height: 2rem;
+        margin-right: 5px;
+      }
+      .name{
+        font-size: 1.2rem;
+        color: var(--light-text-color);
+        margin-bottom: 10px;
+      }
+    }
+    .percentage{
+      font-size: 1rem;
+    }
+    .sparkline{
+      margin-top: 5px;
+      svg{
+        width: 100%;
+        height: 60px;
+      }
+    }
+  }
+}
+}

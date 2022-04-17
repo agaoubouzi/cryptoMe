@@ -1,0 +1,91 @@
+@import "../../styles/export.scss";
+.news{
+  padding: 60px 0;
+  .h2-title{
+    display: inline-block;
+    position: relative;
+    z-index: -1;
+    overflow-y: clip;
+    color: var(--text-color);
+    // Apply this Css only On Safari browsers
+    @media not all and (min-resolution:.001dpcm) { 
+      overflow: hidden;
+      max-height: 1em;
+    }
+    // End
+    .toggle{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: -110px;
+      float: right;
+      transform: translateY(-37px);
+      font-weight: 800;
+      color: $primary-color;
+      top: 0;
+      animation: text-toggle 6s ease-in-out forwards 3s infinite;
+      @media #{$mobile} {
+        right: -95px;
+      }
+      @media #{$portraitMobile} {
+        right: -72px;
+      }
+      // Apply this Css only On Safari browsers
+      @media not all and (min-resolution:.001dpcm) { 
+        position: relative;
+        right: auto;
+        padding-left: 5px;
+      }
+       // End
+      span{
+        font-size: 2rem;
+        @media #{$portraitMobile} {
+          font-size: 1.5rem;
+        }
+
+      }
+    }
+    @media #{$portraitMobile} {
+      font-size: 1.5rem;
+    }
+  }
+  li{
+    border-radius: 10px;
+    .post{
+      height: 180px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      border-radius: 10px;
+      a.post-title{
+        position: absolute;
+        font-size: .9rem;
+        bottom: 0;
+        width: 100%;
+        padding: .8rem;
+        color: #fff;
+        font-weight: 700;
+        height: 50%;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, $primary-color 0%, rgba(0,0,0,0) 99%);
+        text-decoration-line: none;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+    &:hover{
+      box-shadow: none;
+    }
+  }
+  .InfiniteCarouselArrow{
+    visibility: hidden;
+  }
+  &:hover{
+    .InfiniteCarouselArrow{
+      visibility: visible;
+    }
+  }
+
+}

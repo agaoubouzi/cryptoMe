@@ -1,0 +1,71 @@
+@import "../../../styles/export.scss";
+
+.coinChart{
+  position: relative;
+  .tablist{
+    position: absolute;
+    z-index: 2;
+    padding:0;
+    right: 0;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    top: 60px;
+    box-shadow: var(--box-shadow);
+    @media #{$portraitMobile} {
+      top: 50px;
+    }
+    li{
+      padding: .3rem .5rem;
+      cursor: pointer;
+      font-size: .9rem;
+      text-transform: uppercase;
+      color: var(--light-text-color);
+      &.active{
+        color: #fff;
+        background: rgba($primary-color, .6);
+      }
+      @media #{$portraitMobile} {
+        font-size: 1rem;
+      }
+    }
+  }
+  .tooltip-content {
+    border-radius: 0.25rem;
+    background-color: var( --bg-section-color);
+    color: var(--light-text-color);
+    padding: .5rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    visibility: visible;
+    z-index: 99;
+    .timeInfo,.priceInfo{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+        span{
+        font-size: .9rem;
+        padding: .2rem .5rem;
+        i{
+          font-size: .8rem;
+          margin-right: .4rem;
+          color: rgba(var(--light-text-color), .8);
+        }
+      }
+    }
+  }
+  
+  .recharts-cartesian-axis-tick-value{
+    tspan{
+      font-size: 12px;
+      @media #{$portraitMobile} {
+        font-size: 10px;
+      }
+    }
+  }
+.recharts-wrapper .recharts-cartesian-grid-horizontal line:first-child,
+.recharts-wrapper .recharts-cartesian-grid-horizontal line:last-child {
+  stroke-opacity: 0;
+}
+}

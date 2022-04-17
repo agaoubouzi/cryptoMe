@@ -1,0 +1,231 @@
+@import "../../styles/export.scss";
+
+.cryptoListing{
+  z-index: -1;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 60px;
+  .table{
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+
+    thead{
+   
+      tr{
+        position: sticky;
+        top: 0; 
+        z-index: 9;
+        th{
+          padding: .4rem 1rem;
+          text-align: right;
+          color: var(--text-color);
+          font-size: .8rem;
+          cursor: pointer;
+          &:nth-child(-n+2){
+            width: 5px;
+            padding: .5rem .6rem;
+          }
+          i{
+            font-style: initial;
+            font-size: .7rem;
+            padding-left: 5px;
+
+          }
+          &:nth-child(-n+3){
+            text-align: left;
+          }
+          span{
+            font-size: .8rem;
+
+            &:after{
+              content:'\25BC';
+              right: 0;
+              font-size: .5rem;
+              margin-left: .2rem;
+              color: var(--text-color);
+             
+            }
+  
+            &.sorted{
+              &:after{
+                content:'\25B2';
+                color: var(--text-color);
+              }
+            }
+          }
+          &:last-child{
+            span{
+              &:after{
+                display: none;
+              }
+            }
+          }
+          &:nth-child(-n+1){
+            svg{
+              width: .7rem;
+              height: .7rem;
+              path{
+                fill:transparent;
+                stroke: var(--text-color);
+               
+              }
+            }
+            
+            &.activeWatchList{
+              svg{
+                path{
+                  fill:#f6b87e;
+                  stroke: #f6b87e;
+                }
+              }
+            }
+
+            &:after{
+            content:'';
+            }
+          }
+        }
+      }
+    }
+    tbody{
+      border-top-color: var(--progress-color);
+      tr{
+      border-bottom: .1px solid var( --progress-color);
+        td,th{
+          color:var(--text-color);
+          padding: .5rem 1rem;
+          border:none;
+          font-weight: 500;
+          height: 4rem;
+          text-align: right;
+          visibility: hidden;
+          white-space: nowrap;
+          animation: fade-up .5s ease-in-out 1s forwards;
+          animation-delay: 3000ms;
+          vertical-align: middle;
+          min-width: 102px;
+          @for $i from 1 through 36 { 
+           &:nth-child(#{$i}) {
+              animation-delay: #{$i}00ms;
+            }
+            &.sparkline{
+              svg{
+                polyline{
+                  animation: sparklineAnimation 5s linear forwards  #{$i}000ms;
+                }
+              }
+            }
+          }
+          a{
+            color: var(--text-color);
+            text-decoration: none;
+            vertical-align: middle;
+          }
+          &.green{
+              color: $green-up-color;
+          }
+          &.red{
+            color: var(--red-down-color);
+          }
+          .percent{
+            font-size: .8em;
+            margin-left: .2em;
+          }
+          &:nth-child(-n+2){
+            max-width: 5px;
+            width: 5px;
+            min-width: 5px;
+            padding: 1.2rem .6rem;
+            font-weight: 300;
+
+          }
+          &:nth-child(-n+3){
+            text-align: left;
+            .symbol{
+              text-transform: uppercase;
+              color: var(--light-text-color);
+              font-size: .8rem;
+              font-weight: 400;
+            }
+          }
+          &.sparkline{
+            svg{
+              polyline{
+                stroke-dasharray: 3000;
+                stroke-dashoffset: 3000;
+                animation: sparklineAnimation 12s linear forwards;
+              }
+            }
+          }
+          &.watchlist{
+            cursor: pointer;
+            svg{
+              width: .8rem;
+              height: .8rem;
+
+              path{
+                fill: transparent;
+                stroke:var(--light-text-color);
+              }
+            }
+            &:hover{
+              svg{
+               opacity: .4;
+              }
+            }
+            &.watched{
+              svg{
+                path{
+                  fill:$primary-color;
+                  stroke:$primary-color;
+                  opacity:1;
+                }
+              }
+            }
+         
+            
+          }
+          &.max_supply{
+           span{
+            display: block;
+            }           
+          }
+
+        }
+        &:hover{
+          background-color: rgba($primary-color, .1)
+        }
+      }
+    }
+  }
+  .loadmore{
+    display: block;
+    text-align: center;
+    position: relative;
+    font-size: 1rem;
+    color: var(--light-text-color);
+    cursor: pointer;
+    font-weight: 300;
+    &:before{
+       content: '';
+       width: 20px;
+       height: 1px;
+       background-color: var(--light-text-color);
+       position: absolute;
+       transition: all .2s ease;
+       transform: translate(-27px, 12px);
+    }
+    &:after{
+      content: '';
+       width: 20px;
+       height: 1px;
+       background-color: var(--light-text-color);
+       position: absolute;
+       transition: all .2s ease;
+       transform: translate(6px, 12px);
+      
+    }
+ 
+  }
+}
